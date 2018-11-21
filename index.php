@@ -97,12 +97,12 @@
 		?>
     </div>
 
-        </p>
-    </div>
+    </p>
+</div>
 
-    <div class="footer">
-        <p></p>
-    </div>
+<div class="footer">
+    <p></p>
+</div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-# password
+# Check Password
 
 *Check Existing Password in the file*
 
@@ -14,20 +14,19 @@ Live Demo: http://maiam.live/CL/
 Code:
 
 ```
-        // default reading size 1MB = 1000000
-		function checkPassword( $needle, $fileName, $length = 1000000 ) {
-			// SplFileObject can read large files part by part based on size or lines
-			$file = new \SplFileObject( $fileName );
-			while ( ! $file->eof() ) {
-				$line = $file->fread( $length );
-				// new line, space and carriage return added additionally if passwords.txt file format changes.
-                // added comma before string to match the first string
-				if ( preg_match( "/\,[\n\r\s]*$needle:/", ',' . $line ) ) {
-					echo "INVALID PASSWORD, Try a differernt one";
-
-					return;
-				}
-			}
-			echo "OK";
-		}
+    // default reading size 1MB = 1000000
+    function checkPassword( $needle, $fileName, $length = 1000000 ) {
+        // SplFileObject can read large files part by part based on size or lines
+        $file = new \SplFileObject( $fileName );
+        while ( ! $file->eof() ) {
+            $line = $file->fread( $length );
+            // new line, space and carriage return added additionally if passwords.txt file format changes.
+            // added comma before string to match the first string
+            if ( preg_match( "/\,[\n\r\s]*$needle:/", ',' . $line ) ) {
+                echo "INVALID PASSWORD, Try a differernt one";
+                return;
+            }
+        }
+        echo "OK";
+    }
 ```		
